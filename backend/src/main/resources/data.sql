@@ -13,5 +13,8 @@ INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 1);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
 INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 3);
 
+INSERT INTO tb_notification (text, moment, read, route, user_fk) VALUES ('Módulo 1 concluído com sucesso!', TIMESTAMP WITH TIME ZONE '2021-01-12T03:00:00Z', false, 'nao sei oq botar auqi', 1);
 
-INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) values ('Bootcamp HTML', 'https://image.freepik.com/vetores-gratis/jovem-professor-dos-desenhos-animados-homem-professor-na-lousa-ensinando-as-criancas-na-ilustracao-em-vetor-escola-sala-de-aula_53562-7922.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Encyclopedia_icon.svg/1200px-Encyclopedia_icon.svg.png');
+INSERT INTO tb_course (name, img_Uri, img_Gray_Uri) VALUES ('Bootcamp HTML', 'https://image.freepik.com/vetores-gratis/jovem-professor-dos-desenhos-animados-homem-professor-na-lousa-ensinando-as-criancas-na-ilustracao-em-vetor-escola-sala-de-aula_53562-7922.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Encyclopedia_icon.svg/1200px-Encyclopedia_icon.svg.png');
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_fk) VALUES ('1.0', TIMESTAMP WITH TIME ZONE '2020-11-20T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-11-20T03:00:00Z', 1);
+INSERT INTO tb_offer (edition, start_Moment, end_Moment, course_fk) VALUES ('2.0', TIMESTAMP WITH TIME ZONE '2020-12-20T03:00:00Z', TIMESTAMP WITH TIME ZONE '2021-12-20T03:00:00Z', 1);
