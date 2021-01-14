@@ -9,12 +9,13 @@ import java.util.Objects;
 @Table(name = "tb_notification")
 public class Notification implements Serializable {
 private static final long serialVersionUID = -3664744186530385695L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String text;
     private Instant moment;
-    private Boolean read;
+    private boolean read;
     private String route;
 
     @ManyToOne
@@ -57,11 +58,11 @@ private static final long serialVersionUID = -3664744186530385695L;
         this.moment = moment;
     }
 
-    public Boolean getRead() {
+    public boolean  getRead() {
         return read;
     }
 
-    public void setRead(Boolean read) {
+    public void setRead(boolean  read) {
         this.read = read;
     }
 
