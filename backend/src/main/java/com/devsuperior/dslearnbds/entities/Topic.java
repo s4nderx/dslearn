@@ -3,9 +3,7 @@ package com.devsuperior.dslearnbds.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_topic")
@@ -42,6 +40,13 @@ public class Topic implements Serializable {
     @ManyToOne
     @JoinColumn(name = "lesson_fk")
     private Lesson lesson;
+
+    @ManyToOne
+    @JoinColumn(name = "reply_fk")
+    private Reply answer;
+
+    @OneToMany(mappedBy = "topic")
+    private List<Reply> replies = new ArrayList<>();
 
     public Topic() {
     }
@@ -115,6 +120,18 @@ public class Topic implements Serializable {
 
     public void setLesson(Lesson lesson) {
         this.lesson = lesson;
+    }
+
+    public Reply getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Reply answer) {
+        this.answer = answer;
+    }
+
+    public List<Reply> getReplies() {
+        return replies;
     }
 
     @Override
