@@ -4,7 +4,9 @@ import com.devsuperior.dslearnbds.entities.pk.EnrollmentPK;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,6 +27,9 @@ public class Enrollment {
 
     @ManyToMany(mappedBy = "enrollmentsDone")
     private Set<Lesson> lessonsDone = new HashSet<>();
+
+    @OneToMany(mappedBy = "enrollment")
+    private List<Deliver> deliveries = new ArrayList<>();
 
     public Enrollment() {
     }
@@ -62,11 +67,11 @@ public class Enrollment {
         this.enrollMoment = enrollMoment;
     }
 
-    public Instant getRefoundMoment() {
+    public Instant getRefundMoment() {
         return refundMoment;
     }
 
-    public void setRefoundMoment(Instant refundMoment) {
+    public void setRefundMoment(Instant refundMoment) {
         this.refundMoment = refundMoment;
     }
 
@@ -84,5 +89,13 @@ public class Enrollment {
 
     public void setOnlyUpdate(boolean onlyUpdate) {
         this.onlyUpdate = onlyUpdate;
+    }
+
+    public Set<Lesson> getLessonsDone() {
+        return lessonsDone;
+    }
+
+    public List<Deliver> getDeliveries() {
+        return deliveries;
     }
 }
