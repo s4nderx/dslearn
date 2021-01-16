@@ -60,7 +60,7 @@ private static final long serialVersionUID = -3664744186530385695L;
         this.moment = moment;
     }
 
-    public boolean  getRead() {
+    public boolean  isRead() {
         return read;
     }
 
