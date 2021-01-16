@@ -2,8 +2,10 @@ package com.devsuperior.dslearnbds.resources.exceptions;
 
 //import com.amazonaws.AmazonClientException;
 //import com.amazonaws.AmazonServiceException;
-import com.devsuperior.dslearnbds.service.exceptions.DataBaseException;
-import com.devsuperior.dslearnbds.service.exceptions.ResourceNotFoundException;
+import com.devsuperior.dslearnbds.services.exceptions.DataBaseException;
+import com.devsuperior.dslearnbds.services.exceptions.ForbiddenException;
+import com.devsuperior.dslearnbds.services.exceptions.ResourceNotFoundException;
+import com.devsuperior.dslearnbds.services.exceptions.UnauthorizedException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -86,6 +88,18 @@ public class ResourceExceptionHandler {
         error.setMessage(exception.getMessage());
         error.setPath(request.getRequestURI());
         return ResponseEntity.status(error.getStatus()).body(error);
+    }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<OAuthCustomError> forbidden(ForbiddenException exception, HttpServletRequest request){
+        OAuthCustomError error = new OAuthCustomError("Forbidden", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
+    }
+
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<OAuthCustomError> unauthorized(UnauthorizedException exception, HttpServletRequest request){
+        OAuthCustomError error = new OAuthCustomError("Unauthorized", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
     }
 
 }

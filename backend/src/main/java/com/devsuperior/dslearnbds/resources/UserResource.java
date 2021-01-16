@@ -1,7 +1,7 @@
 package com.devsuperior.dslearnbds.resources;
 
 import com.devsuperior.dslearnbds.dto.UserDTO;
-import com.devsuperior.dslearnbds.service.UserService;
+import com.devsuperior.dslearnbds.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
