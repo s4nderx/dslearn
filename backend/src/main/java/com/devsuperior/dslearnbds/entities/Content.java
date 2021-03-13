@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_Content")
+@Table(name = "tb_content")
 public class Content extends Lesson {
     private static final long serialVersionUID = -4521194205665485378L;
 
